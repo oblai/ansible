@@ -1,0 +1,27 @@
+---
+# tasks file for update
+- block: #RedHat
+  - name: Обновление репозиториев
+    yum: name="*" state=latest
+ 
+  - name: Удаление лишних пакетов
+    yum:
+      autoremove: yes
+
+  when: ansible_os_family == "RedHat"
+  
+  
+- block: #Debian
+  - name: Обновление репозиториев
+    apt:
+      update_cache: yes
+  
+  - name: Обновление пакетов
+    apt:
+      upgrade: yes
+  
+  - name: Удаление лишних пакетов
+    apt:
+      autoremove: yes
+      
+  when: ansible_os_family == "Debian"
