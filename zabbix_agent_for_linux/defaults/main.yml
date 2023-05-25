@@ -1,0 +1,6 @@
+---
+# defaults file for zabbix_agent_for_linux
+
+server: "ipZabbixServer"
+ServerActive: "ipZabbixServer"
+Hostname: "ServerName"

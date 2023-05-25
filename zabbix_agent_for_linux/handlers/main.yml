@@ -1,0 +1,18 @@
+---
+# handlers file for zabbix_agent_for_linux
+
+- name: Restart Zabbix-agent
+  service:
+    name: zabbix-agent
+    state: restarted
+    enabled: yes
+
+- name: update cache yum
+  service:
+    name: yum
+    update_cache: true
+
+- name: update cache apt
+  service:
+    name: apt
+    update_cache: yes
